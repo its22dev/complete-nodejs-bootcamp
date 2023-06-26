@@ -1,0 +1,18 @@
+{
+  "name": "1-node-farm",
+  "version": "1.0.0",
+  "description": "Learning node.js",
+  "main": "index4.js",
+  "scripts": {
+    "start": "nodemon index5.js"
+  },
+  "author": "its22dev",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "slugify": "^1.6.6"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
+}

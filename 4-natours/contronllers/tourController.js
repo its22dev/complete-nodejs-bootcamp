@@ -20,6 +20,19 @@ exports.checkID = (req, res, next, value) => {
   next();
 }
 
+// 65 檢查傳進來的body
+exports.checkBody = (req, res, next) => {
+  if (!req.body.name || !req.body.price) {
+    return res
+      .status(400)
+      .json({
+        status: 'fail',
+        message: 'Invalid name or price',
+      })
+  }
+  next();
+}
+
 exports.getTours = (req, res) => {
   console.log(req.requestTime);
   if (JSON.stringify(req.params) !== '{}') {

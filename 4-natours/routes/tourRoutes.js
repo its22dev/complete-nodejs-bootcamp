@@ -14,13 +14,18 @@ const { getTours, postTour, patchTour, deleteTour } = require('../contronllers/t
 // 只適用tourRouter
 router.param('id', tourController.checkID)
 
+// create a checkBody mw
+// check if body contains the name and price
+// if not, send back 400(bad req)
+// add it to the post handler stack
+// tourController.checkBody,
 
 // controller.方法名稱
 router
   .route('/')
   // .get(tourController.getTours)
   .get(getTours)
-  .post(postTour)
+  .post(tourController.checkBody, postTour)
 router
   .route('/:id')
   .get(getTours)

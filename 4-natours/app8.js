@@ -1,5 +1,7 @@
 // jonasschmedtmann node.js
 // 60-61
+// 引入import 3rd-prty Morgan
+// 建立一個無效的路由userRouter
 
 const express = require('express');
 const morgan = require('morgan');

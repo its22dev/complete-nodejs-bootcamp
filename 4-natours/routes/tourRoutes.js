@@ -14,6 +14,7 @@ const { getTours, postTour, patchTour, deleteTour } = require('../contronllers/t
 // 只適用tourRouter
 router.param('id', tourController.checkID)
 
+// 065 挑戰
 // create a checkBody mw
 // check if body contains the name and price
 // if not, send back 400(bad req)

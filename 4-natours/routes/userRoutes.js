@@ -3,42 +3,14 @@
 
 const express = require('express');
 const router = express.Router();
-
-const getUsers = (req, res) => {
-  res
-    .status(500)
-    .json({
-      status: 'error',
-      message: 'The route is not defined yet!'
-    })
-}
-const postUser = (req, res) => {
-  res
-    .status(500)
-    .json({
-      status: 'error',
-      message: 'The route is not defined yet!'
-    })
-}
-const patchUser = (req, res) => {
-  res
-    .status(500)
-    .json({
-      status: 'error',
-      message: 'The route is not defined yet!'
-    })
-}
-const deleteUser = (req, res) => {
-  res
-    .status(500)
-    .json({
-      status: 'error',
-      message: 'The route is not defined yet!'
-    })
-}
+// import controller
+const userController = require('../contronllers/userController');
+// 解構controller方法
+const { getUsers, postUser, patchUser, deleteUser } = require('../contronllers/userController');
 
 router
   .route('/')
+  // .get(userController.getUsers)
   .get(getUsers)
   .post(postUser)
 router

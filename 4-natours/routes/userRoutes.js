@@ -3,10 +3,12 @@
 
 const express = require('express');
 const router = express.Router();
+
 // import controller
 const userController = require('../contronllers/userController');
 // 解構controller方法
 const { getUsers, postUser, patchUser, deleteUser } = require('../contronllers/userController');
+
 
 router
   .route('/')

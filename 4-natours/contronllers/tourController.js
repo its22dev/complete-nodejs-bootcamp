@@ -1,9 +1,24 @@
 // jonasschmedtmann node.js
 // 63 路由分離3: 新建controller
 
-
 const fs = require('fs');
 const tours = JSON.parse(fs.readFileSync(`${__dirname}/../dev-data/data/tours-simple.json`));
+
+// 64 分離方法
+exports.checkID = (req, res, next, value) => {
+  console.log(`Tour ID is ${value}`);
+  if (Number(req.params.id) > tours.length) {
+    console.log(`${value} is invalid ID`);
+    return res
+      .status(404)
+      .json({
+        status: 'fail',
+        message: 'Invalid ID',
+      })
+  }
+  // 64一定要有
+  next();
+}
 
 exports.getTours = (req, res) => {
   console.log(req.requestTime);
@@ -53,14 +68,6 @@ exports.postTour = (req, res) => {
   })
 }
 exports.patchTour = (req, res) => {
-  if (Number(req.params.id) > tours.length) {
-    return res
-      .status(404)
-      .json({
-        status: 'fail',
-        message: 'Invalid ID',
-      })
-  }
   res
     .status(200)
     .json({
@@ -69,14 +76,6 @@ exports.patchTour = (req, res) => {
     })
 }
 exports.deleteTour = (req, res) => {
-  if (Number(req.params.id) > tours.length) {
-    return res
-      .status(404)
-      .json({
-        status: 'fail',
-        message: 'Invalid ID',
-      })
-  }
   res
     // .status(204)
     .status(200)

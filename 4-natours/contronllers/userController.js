@@ -1,5 +1,7 @@
 // jonasschmedtmann node.js
 // 63 路由分離3: 新建controller
+
+
 exports.getUsers = (req, res) => {
   res
     .status(500)
